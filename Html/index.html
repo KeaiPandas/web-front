@@ -1,12 +1,33 @@
+<!-- 这是一行注释代码，注释不会被浏览器解析 -->
+<!-- <!DOCTYPE html>必须写且务必写在首行 -->
 <!DOCTYPE html>
+<!-- html文档的开始 -->
 <html lang="en">
+    <!-- 描述html页面信息 -->
     <head>
-        <meta charset="UTF-8" />
-        <title>我的第一个网页</title>
+        <!-- 声明当前html文档的字符集为utf-8 -->
+        <!-- <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> -->
+        <meta charset="utf-8" />
+        <!-- SEO搜索引擎优化 -->
+        <!-- 网站标题 -->
+        <title>HelloHTML</title>
+        <!-- 关键词 -->
+        <meta name="keywords" content="关键词1, 关键词2" />
+        <!-- 详细描述 -->
+        <meta name="descrtption" content="详细描述" />
+        <!-- 用来引入css文件必须写在head中 -->
+        <link rel="stylesheet" href="">
+
+        <!-- 用来编写css的代码块 -->
+        <style type="text/css"></style>
+
+        <!-- 用来引入js文件或编写javascript代码块 也可以写在body中 -->
+        <script type="text/javascript"></script>
     </head>
+
+    <!-- html页面展示的内容都写在body中 -->
     <body>
-        <div style="width:400px; height:300px; background-color:peachpuff">
-            
-        </div>
+        <h1>HelloHTML 你好</h1>
+        <p>这是一个文本标签</p>
     </body>
 </html>
