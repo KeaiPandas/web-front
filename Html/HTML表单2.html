@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML表单2</title>
+</head>
+<body>
+
+    <form>
+        <fieldset style="width:300px;">
+            <legend>这是一个表单的标题</legend>
+            Quantity (between 1 and 5):
+            <input type="number" name="quantity" min="1" max="5">
+
+            <br>
+
+            Birthday:
+            <input type="date" name="bday">
+
+            <br>
+            <select name="study">
+                <option value="0">请选择</option>
+                <option value="1">初级</option>
+                <option selected="selected" value="2">中级</option>
+                <option value="3">高级</option>
+            </select>
+
+            <br>
+
+            <textarea style="width: 300px; height: 100px;"></textarea>
+
+            <br>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </fieldset>
+    </form>
+    
+</body>
+</html>
