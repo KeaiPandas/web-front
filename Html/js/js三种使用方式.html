@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三种使用方式</title>
+
+</head>
+<body>
+
+    <!-- 行内 -->
+    <button id="btn" type="button" onclick="alert('我是一个点击事件');">我是一个按钮</button>
+    <button type="button" onclick="print()">我是一个内部按钮</button>
+    <button type="button" onclick="hello()">我是一个外部引入</button>
+    <script type="text/javascript">
+        document.getElementById("btn").style.display = 'none';
+    </script>
+    <!-- 内部 -->
+    <script type="text/javascript" charset="utf-8">
+        function print() {
+            alert('我是一个函数触发的提示')
+        }
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="hello.js"></script>
+</body>
+</html>

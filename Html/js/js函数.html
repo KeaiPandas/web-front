@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js函数</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // 函数的定义
+        // 函数声明语句
+        function foo() {
+            console.log('我是一个函数');
+        }
+
+        foo();
+
+        // 函数定义
+        var foo2 = function () {
+            console.log('我是函数2');
+        }
+
+        //调用函数
+        foo2();
+
+        // Function构造函数
+        var foo3 = Function('x','y', 'return x + y');
+
+        //等价于
+        function foo4(x,y) {
+            return x + y;
+        }
+
+        var result = foo3(1,2);
+        console.log(result);
+
+        console.log(func());
+        function func() {
+            console.log('我是func函数');
+        }
+
+        // 函数参数调用和return
+        function add(a, b) {
+            console.log(a + "+" + b + "=" + (a + b));
+        }
+    </script>
+</body>
+</html>

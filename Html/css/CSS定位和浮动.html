@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS定位和浮动</title>
+    <style type="text/css">
+        .a_div {
+            width: 200px;
+            height: 200px;
+            background: black;
+            /* 控制子元素使用不会超出副元素 */
+            position: relative;
+            margin: 100px;
+        }
+        .b_div {
+            width: 50px;
+            height: 50px;
+            background: yellow;
+            /* 绝对定位会先看上级元素。。。是否有relative，有的话参照，没有的话参照body */
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        .c_div {
+            background-color: yellowgreen;
+            height: 50px;
+            width: 50px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+        .div1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            float: right;
+        }
+        .div2 {
+            width: 100px;
+            height: 100px;
+            background: purple;
+            float: left;
+
+        }
+        .div3 {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            float: left;
+
+        }
+        .div4 {
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+            float: left;
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="a_div">
+        <div class="b_div"></div>
+    </div>
+
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4"></div>
+    <div class="div5"></div>
+
+    <div class="c_div"></div>
+
+</body>
+</html>
