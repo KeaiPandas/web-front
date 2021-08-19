@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS的window</title>
+</head>
+<body>
+    <button type="button" onclick="show_alter();">消息框</button>
+
+    <button type="button" onclick="show_prompt();">输入框</button>
+
+    <button type="button" onclick="init_time();">初始化时间</button>
+
+    <button type="button" onclick="stop_func();">停止时间</button>
+
+    <h1 id="time_h1"></h1>
+    <!---->
+
+    <script type="text/javascript">
+        function show_alter() {
+            alert("我是消息框");
+        }
+
+        function show_prompt() {
+            var age = prompt('请输入年龄');
+            alert(age);
+        }
+        // -------------时间函数-------------
+        function show_msg() {
+            alert('对不起，让您久等了...');
+        }
+
+        //三秒后执行指定函数
+        // window.setTimeout(show_msg, 3000);
+
+        /* 
+        在页面的div展示一个时间
+        当事件的秒数为0结尾时，修改时间颜色为红色
+        再设置一个按钮停止时间展示
+        */
+
+        var stop_flag = null; // timeID
+
+        function init_time() {
+            var current_time = new Date();
+            var time_str = current_time.toLocaleString();
+
+
+            // // 思路一： 根据字符串截取比较 如果是0标记为true
+            // var charAt_str = time_str.charAt(time_str.length - 4);
+            // // console.log(charAt_str)
+            var flag =false; 
+
+            // if ('0' == charAt_str) {
+            //     flag = true;
+            // }
+
+            // 思路二： 对秒数进行取余操作
+            var sec = current_time.getSeconds() % 10;
+            if ('0' == sec) {
+                flag = true;
+            }
+            
+
+            // 当秒数结尾为0时修改为红色
+            if (flag) {
+                document.getElementById("time_h1").innerHTML = '<span style="color:red;">' + time_str + '</span>';
+            } else {
+                // 秒数结尾不为0时正常显示
+                document.getElementById("time_h1").innerHTML = time_str;
+            }
+            stop_flag = window.setTimeout(init_time, 1000); // 该函数执行后，会返回一个唯一的timeID
+        }
+
+        window.setTimeout(init_time, 0);
+
+        function stop_func() {
+            window.clearTimeout(stop_flag);
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        // 字面量形式创建对象,一般键就是字符串
+        var user = {'name':'张三', 'sex':1, 'age':18};
+        console.log(user);
+
+        // 通过new object对象创建
+        var user1 = new Object();
+        user1.name = '李四';
+        user1.sex = 0;
+        user1.age = 20;
+        console.log(user1)
+
+        // 通过Object对象的create方法创建对象
+        var user1 = Object.create(null);
+        user1.name = '王五';
+        user1.sex = 0;
+        user1.age = 21;
+        console.log(user1);
+
+        // 对象的序列化和反序列化
+        // json对象转字符串
+        
+        var json_str = JSON.stringify(user1);
+        console.log(json_str);
+        console.log(JSON.parse(json_str));
+
+        // json字符串转json对象
+        json_str = '{"name":"张三", "sex":1, "age":18}';
+        var json_obj = JSON.parse(json_str);
+        console.log(json_obj);
+
+        // eval()和python的一样
+
+        //---------------this相当于Python里的self---------------
+        function add(x, y) {
+            this.x = x;
+            this.y = y;
+            return this.x + this.y;
+        }
+        
+        var result = add(1, 2);
+        console.log(result)
+
+        console.log('----------------')
+        function test() {
+            this.x = 1 ; // this代表window浏览器窗口对象
+            console.log(this.x);
+        }
+        test();
+        console.log(x); // 相当于定义在全局对象上的属性
+
+        var obj = {
+            z:1,
+            name: '张三',
+            age: 20,
+            sayHello: function() {
+                console.log(this.name)
+                console.log(this)
+            },
+            sex:1
+        }
+
+        obj.sayHello()
+    </script>
+</body>
+</html>

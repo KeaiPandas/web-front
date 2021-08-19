@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS常用事件</title>
+</head>
+<body onload="load_window();"> 
+    <button type="button" onclick="c_func()">点击事件</button>
+
+    <div onmouseover="mouse_over();">鼠标过来划拉我</div>
+
+    用户名：<input type="text" onblur="b_func();" onfocus="f_func();" onkeydown="kdwon();" placeholder="移开光标就弹出"><span id="user_span"></span>
+
+    爱好：<select onchange="change_func();">
+        <option>---请选择---</option>
+        <option>篮球</option>
+        <option>足球</option>
+        <option>乒乓球</option>
+    </select>
+
+    <script type="text/javascript">
+        // onload
+        function load_window() {
+            alert("窗口加载调用");
+        }
+
+        // onclick
+        var c_func = function() {
+            alert("你点击到我了");
+        }
+
+        // onblur:失去焦点
+        function b_func() {
+            document.getElementById("user_span").innerHTML = "用户名不能为空";
+        }
+
+        // onfocus:获得焦点触发事件
+        function f_func() {
+            document.getElementById("user_span").innerHTML = "请输入4-10个字符";
+        }
+
+        // onchange:用户改变域的内容
+        function change_func() {
+            document.getElementById('user_span').innerHTML = "爱好已改变";
+        }
+        // onmouseover:鼠标经过
+        function mouse_over() {
+            document.getElementById("user_span").innerHTML = "鼠标已经过div";
+        }
+        // onkeydown:某个键盘的键被按下
+        function kdwon() {
+            if (77 == event.keyCode){
+                document.getElementById("user_span").innerHTML = "不要骂人";
+            }
+        }
+    </script>
+</body>
+</html>
