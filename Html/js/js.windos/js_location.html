@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_BOM_location</title>
+</head>
+<body>
+    <button type="button" onclick="window.location.reload();">刷新页面</button>
+    <input type="text">
+
+    <button type="button" onclick="show_sxt();">shsxt官网</button>
+
+    <script type="text/javascript">
+        function show_sxt() {
+            console.log(window.location.href); //查看当前页面的路径
+            // 改变href路径
+            window.location.href = 'http://www.shsxt.com';
+            alert(window.location.href);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom创建节点</title>
+</head>
+<body>
+    <button onclick="add_para();">添加段落</button>
+    <div id="container"></div>
+
+    <script type="text/javascript">
+    /*
+    * 创建且添加：
+    *          父元素.appendChild(document.createElement('元素名称'));
+    *          父元素.innerHTML = '元素格式字符串';
+    * 文本:
+    *          父元素.appendChild(document.createTextNode('文本内容字符串'));
+    *          父元素.innerText = '文本内容字符串';
+    * 属性:
+    *          元素.属性名 = '属性值字符串';
+    *          元素.setAttribute('属性名字符串','属性值字符串');
+    */
+        function add_para() {
+            // 第一种方式
+            // 获取div元素
+            var dv = document.getElementById("container");
+            // 创建p元素
+            var para = document.createElement('p');
+            // 创建一个文本节点
+            var txt = document.createTextNode('以后的你会感谢现在努力的你')
+            // 给p元素添加文件节点
+            para.appendChild(txt)
+            // 给p元素添加id属性
+            para.id = 'p1';
+            // 将p元素添加至div元素
+            dv.appendChild(para)
+
+            // 第二种
+            para.innerHTML = '以后的你会感谢现在努力的你';
+
+            // 第三种
+            var p_tag = '<p id="p1">以后你的会感谢现在努力的你</p>';
+            dv.innerHTML = p_tag;
+        }
+    </script>
+</body>
+</html>

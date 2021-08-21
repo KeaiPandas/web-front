@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_BOM_cookie</title>
+</head>
+<body>
+    <button type="button" onclick="set_cookie();">添加cookie</button>
+    <button type="button" onclick="get_cookie();">获取cookie</button>
+    <script type="text/javascript">
+        function set_cookie() {
+            //cookie
+            document.cookie = 'name=' + encodeURIComponent('张三');
+
+            // 设置失效时间
+            var date = new Date();
+            date = date.toUTCString();
+            console.log(date);
+            // document.cookie = document.cookie + 
+        }
+
+        function get_cookie() {
+            alert(decodeURI(document.cookie));
+        }
+    </script>
+    
+</body>
+</html>

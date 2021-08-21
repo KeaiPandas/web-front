@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_DOM_获取节点</title>
+</head>
+<body>
+    <p id="p1" class="paragraph">这是一个段落<span>文本</span></p>
+    <p id="p2" class="paragraph">这又是一个段落</p>
+
+    <!-- 根据name获得元素 -->
+    <input type="text" name="txt" id="" value="我是一个文本框">
+    <input type="checkbox" name="hobby" value="游泳">游泳
+    <input type="checkbox" name="hobby" value="篮球">篮球
+    <input type="checkbox" name="hobby" value="足球">足球
+    
+    <hr>
+
+    <a href="javascript:void(0);" onclick="testById()">根据id获取元素</a>
+    <a href="javascript:void(0);" onclick="testByName()">根据name获取元素</a>
+    <a href="javascript:void(0);" onclick="testByTagName()">根据标签名称获取元素</a>
+    <a href="javascript:void(0);" onclick="testByClass()">根据class获取元素</a>
+
+    <script>
+        // 根据id获取元素
+        var p = document.getElementById('p1');
+        // p.innerHTML 获取p元素的元素结构
+        // p.innerText 获取p元素的文本内容
+        console.log(p.innerText);
+
+        // 根据name获取元素
+        var hobbies = document.getElementsByName('hobby');
+        console.log(hobbies);
+
+        for (var i = 0; i < hobbies.length; i++) {
+            var inp = hobbies[i];
+            console.log(inp.value);
+        }
+
+        var txt = document.getElementsByName('txt')[0];
+        console.log(txt.value);
+
+        // 根据标签名称获取元素
+        var inp = document.getElementsByTagName('input');
+        console.log(inp);
+
+    </script>
+</body>
+</html>
