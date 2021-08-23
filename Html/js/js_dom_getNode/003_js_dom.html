@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS_BOM_间接查找节点</title>
+    <title>JS_DOM_间接查找节点</title>
 </head>
 <body>
     <button type="button" id="btn">测试按钮</button>
@@ -15,7 +15,7 @@
                 <input >
                 <input >
                 <input id="inp">
-                <span>
+                <span id="id_span">
                     <p></p>
                 </span>
             </table>
@@ -25,10 +25,21 @@
     <script type="text/javascript">
         // 获取button按钮
         var btn = document.getElementById('btn');
-        
-        function test_childNodes() {
 
+        function test_childNodes() {
+            var dv = document.getElementById("dv");
+            console.log(dv.childNodes[1]);
         }
+        btn.onclick = test_childNodes;
+
+        // firstChild 返回元素的第一个子节点
+        function test_firstChild() {
+            var id_span = document.getElementById('id_span');
+            console.log(id_span.firstChild);
+        }
+
+        btn.onclick = test_firstChild;
+
     </script>
 
     

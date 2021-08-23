@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_DOM_form表单提交</title>
+</head>
+<body>
+    <form id="myform1" name="myform2" action="ok.html" method="POST" onsubmit="return onsub();">
+        <input type="text" name="test" id="uname"><span id="msg"></span><br>
+        <!-- 通过js事件：sub()提交表单 -->
+        <input type="button" onclick="sub();" value="提交表单1">
+        <!-- submit类型直接提交表单，但是因为有事件会触发事件根据返回值判断是否提交 -->
+        <input type="submit" onclick="return sub2();" value="提交表单2">
+        <input type="submit" value="提交表单3"><br>
+        <!-- type类型为image,直接提交表单,但是因为有onsubmit事件会触发事件并根据返回值判断是否提交 -->
+        <input type="image" src="img/timg.jpg" width="60px" height="80px">
+    </form>
+
+    <script type="text/javascript">
+        // 第一种input类型为submi会直接提交表单
+        
+        function onsub() {
+            return true;
+        }
+
+        // 第二种通过事件提交form
+        function sub() {
+            myform2.submit();
+        }
+
+        // 第三种
+    </script>
+</body>
+</html>

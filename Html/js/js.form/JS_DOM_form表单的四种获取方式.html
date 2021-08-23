@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_DOM_form表单的四种获取方式</title>
+</head>
+<body>
+    <form id="myform" name="myform" action="" method="POST"></form>
+    <form id="myform2" name="myform2" action="" method="POST"></form>
+    
+    <script>
+        // 第一种document.表单名称
+        var myform = document.myform;
+        console.log(myform);
+
+        // 第二种document.getElementById(表单id)
+        myform = document.getElementsById("myform");
+        console.log(myform);
+
+        // 第三种document.form[表单名称]
+        myform = document.forms['myform'];
+        console.log(myform);
+
+        // 第四种document.forms[索引]
+        myform2 = document.forms[1];
+        console.log(myform2);
+    </script>
+</body>
+</html>

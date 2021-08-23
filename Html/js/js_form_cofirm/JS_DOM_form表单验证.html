@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dv {
+            position: absolute;
+            top: 40%;
+            left: 40%;
+        }
+    </style>
+</head>
+<body>
+    <div class="dv">
+        <form id="myform" name="myform">
+            姓名: <input type="text" id="uname" name="uname"> <br> 
+            密码: <input type="password" id="upwd" name="upwd"><br>
+            年龄: 
+            <input type="radio" name="uage" value="0" checked="checked">小屁孩
+            <input type="radio" name="uage" value="1"> 你懂得 <br>
+            爱好: 
+            <input type="checkbox" name="hobby" value="运动">运动
+            <input type="checkbox" name="hobby" value="游戏">游戏
+            <input type="checkbox" name="hobby" value="代码">代码<br>
+            来自:
+            <select name="addr" id="addr">
+                <option value="0" selected="selected">请选择</option>
+                <option value="1">北京</option>
+                <option value="2">上海</option>
+            </select><br>
+            <div id="validate" style="color: red;">
+                
+            </div>
+            <button type="submit" onclick="return check_form();">提交</button>
+            <button type="reset" onclick="reset_form();">重置</button>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="check_form.js"></script>
+</body>
+</html>
