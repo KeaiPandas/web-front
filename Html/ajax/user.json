@@ -1,0 +1,17 @@
+{
+    "user1":{
+        "name":"zhangsan",
+        "pwd":"111",
+        "sex":1
+    },
+    "user2":{
+        "name":"lisi",
+        "pwd":"222",
+        "sex":0
+    },
+    "user3":{
+        "name":"wangwu",
+        "pwd":"333",
+        "sex":0
+    }
+}

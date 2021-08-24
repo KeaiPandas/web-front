@@ -48,16 +48,15 @@
             * 4.接收返回响应
             */
            var xhr = new XMLHttpRequest();
+           xhr.onreadystatechange = function() {
+               console.log(xhr.readyState);
+           }
 
-           xhr.open('get', 'js/user.json', true);
+           xhr.open('get', 'js/user.json', false);
 
            xhr.send(null);
 
-           if(xhr.status == 200) {
-               console.log(xhr.responseText);
-           } else {
-               console.log("请求失败！状态码为：" + xhr.status + ",状态信息" + xhr.statusText);
-           }
+           
 
         }
 
