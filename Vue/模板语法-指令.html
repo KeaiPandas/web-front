@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指令</title>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-if="seen">有没有看到我呢</p>
+        <a v-bind:href="url">可变换的链接</a>
+        <div @click="click1">
+            <div @click.stop="click2">
+                click me
+            </div>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                seen:true,
+                url: "https://cn.vuejs.org/v2/guide/installation.html"
+            },
+            method:{
+                click1 : function () {
+                    console.log('click1......');
+                },
+                click2 : function () {
+                    console.log('click2......');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
