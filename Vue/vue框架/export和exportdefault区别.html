@@ -1,0 +1,26 @@
+<template>
+    <div>
+      <div v-show="show">HelloWorld</div>
+      <button @click="handleClick">Click</button>
+    </div>
+  </template>
+  
+  <script>
+  
+  import {list} from '@/components/common.js'
+  
+  export default {
+    name: "test",
+    data() {
+      return {
+        show: true
+      };
+    },
+    methods: {
+      handleClick: function() {
+        list();
+      }
+    }
+  };
+  </script>
+  
