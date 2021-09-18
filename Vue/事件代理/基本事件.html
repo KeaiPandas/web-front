@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<title>事件的基本使用</title>
 		<!-- 引入Vue -->
-		<script type="text/javascript" src="../js/vue.js"></script>
+		<script type="text/javascript" src="../vue.js"></script>
 	</head>
 	<body>
 		<!-- 
@@ -34,15 +34,14 @@
 			},
 			methods:{
 				showInfo1(event){
-					// console.log(event.target.innerText)
+					// console.log(event.target)
 					// console.log(this) //此处的this是vm
-					alert('同学你好！')
+					alert('同学你好1！')
 				},
-				showInfo2(event,number){
-					console.log(event,number)
-					// console.log(event.target.innerText)
+				showInfo2(event,number,a,b,c){
+					console.log(event)
 					// console.log(this) //此处的this是vm
-					alert('同学你好！！')
+					console.log('同学你好2！' + number,a,b,c)
 				}
 			}
 		})
