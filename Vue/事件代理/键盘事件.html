@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<title>键盘事件</title>
 		<!-- 引入Vue -->
-		<script type="text/javascript" src="../js/vue.js"></script>
+		<script type="text/javascript" src="../vue.js"></script>
 	</head>
 	<body>
 		<!-- 
@@ -32,7 +32,7 @@
 		<!-- 准备好一个容器-->
 		<div id="root">
 			<h2>欢迎来到{{name}}学习</h2>
-			<input type="text" placeholder="按下回车提示输入" @keydown.huiche="showInfo">
+			<input type="text" placeholder="按下回车提示输入" @keydown.tab="showInfo">
 		</div>
 	</body>
 
