@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数参数默认值</title>
+</head>
+<body>
+    <div id="ad"></div>
+    <script>
+        function add(a,b,c=10) {
+            return a + b + c
+        }
+        let result = add(1, 2)
+        console.log(result)
+
+        function connect(options){
+            let host = options.host
+            console.log(host)
+        }
+        connect({
+            host: 'localhost',
+            username: 'root',
+            password: 'root',
+            port: 3306
+        })
+    </script>
+</body>
+</html>
