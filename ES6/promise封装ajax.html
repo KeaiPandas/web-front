@@ -16,7 +16,7 @@
             xhr.send()
 
             xhr.onreadystatechange = function(){
-                //判断
+                //判断条件
                 if(xhr.readyState === 4){
                     if(xhr.status >= 200 && xhr.status < 300){
                         resolve(xhr.response)
