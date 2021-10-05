@@ -28,7 +28,7 @@
 					return pre + (current.done ? 1 : 0)
 				},0) */
 				//简写
-				return this.todos.reduce((pre,current)=> pre + (current.done ? 1 : 0),0)
+				return this.todos.reduce((pre,todo)=> pre + (todo.done ? 1 : 0) ,0)
 			},
 			//控制全选框
 			isAll:{

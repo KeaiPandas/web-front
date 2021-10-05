@@ -1,9 +1,13 @@
 <template>
-<div>
-	<MyHeader :receive="receive" />
-	<MyList :todos='todos' :checkTodo="checkTodo" :deleteTodo="deleteTodo" />
-	<MyFooter :todos="todos"/>
-</div>
+	<div id="root">
+		<div class="todo-container">
+			<div class="todo-wrap">
+				<MyHeader :addTodo="addTodo"/>
+				<MyList :todos="todos" :checkTodo="checkTodo" :deleteTodo="deleteTodo"/>
+				<MyFooter :todos="todos" :checkAllTodo="checkAllTodo" :clearAllTodo="clearAllTodo"/>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
@@ -13,32 +17,49 @@
 
 	export default {
 		name:'App',
+		components:{MyHeader,MyList,MyFooter},
 		data() {
 			return {
-				todos:[
-					{id:'001',title:'吃饭',done:true},
-					{id:'002',title:'睡觉',done:false},
-					{id:'003',title:'抽烟',done:true}
-				]
+				//由于todos是MyHeader组件和MyFooter组件都在使用，所以放在App中（状态提升）
+				todos:JSON.parse(localStorage.getItem('todos')) || []
 			}
 		},
-		method: {
-			receive(x) {
-				console.log('我是App组件，我收到了数据', x)
+		methods: {
+			//添加一个todo
+			addTodo(todoObj){
+				this.todos.unshift(todoObj)
 			},
 			//勾选or取消勾选一个todo
 			checkTodo(id){
-				this.todos.forEach(()=>{
+				this.todos.forEach((todo)=>{
 					if(todo.id === id) todo.done = !todo.done
 				})
 			},
-			deleteTodo(id) {
-				this.todos = this.todos.filter((todo) => {
-					return todo.id !== id
+			//删除一个todo
+			deleteTodo(id){
+				this.todos = this.todos.filter( todo => todo.id !== id )
+			},
+			//全选or取消全选
+			checkAllTodo(done){
+				this.todos.forEach((todo)=>{
+					todo.done = done
+				})
+			},
+			//清除所有已经完成的todo
+			clearAllTodo(){
+				this.todos = this.todos.filter((todo)=>{
+					return !todo.done
 				})
 			}
 		},
-		components: {MyHeader,MyList,MyFooter},
+		watch: {
+			todos:{
+				deep:true,
+				handler(value){
+					localStorage.setItem('todos',JSON.stringify(value))
+				}
+			}
+		},
 	}
 </script>
 
