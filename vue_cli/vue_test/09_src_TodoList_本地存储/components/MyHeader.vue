@@ -23,7 +23,7 @@
 				//将用户的输入包装成一个todo对象
 				const todoObj = {id:nanoid(),title:this.title,done:false}
 				//通知App组件去添加一个todo对象
-				this.$emit('addTodo',todoObj,1,2,3)
+				this.addTodo(todoObj)
 				//清空输入
 				this.title = ''
 			}

@@ -38,7 +38,7 @@
 				},
 				//isAll被修改时set被调用
 				set(value){
-					this.$emit('checkAllTodo',value)
+					this.checkAllTodo(value)
 				}
 			}
 		},
@@ -48,8 +48,7 @@
 			} */
 			//清空所有已完成
 			clearAll(){
-				// this.clearAllTodo()
-				this.$emit('clearAllTodo')
+				this.clearAllTodo()
 			}
 		},
 	}
