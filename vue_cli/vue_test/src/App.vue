@@ -1,8 +1,8 @@
 <template>
 <div>
 	<MyHeader :receive="receive" />
-	<MyList :todos='todos' :checkTodo="checkTodo" />
-	<MyFooter/>
+	<MyList :todos='todos' :checkTodo="checkTodo" :deleteTodo="deleteTodo" />
+	<MyFooter :todos="todos"/>
 </div>
 </template>
 
@@ -30,6 +30,11 @@
 			checkTodo(id){
 				this.todos.forEach(()=>{
 					if(todo.id === id) todo.done = !todo.done
+				})
+			},
+			deleteTodo(id) {
+				this.todos = this.todos.filter((todo) => {
+					return todo.id !== id
 				})
 			}
 		},
