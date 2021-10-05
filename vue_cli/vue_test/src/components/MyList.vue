@@ -1,6 +1,11 @@
 <template>
 	<ul class="todo-main">
-		<MyItem v-for="todpObj in todos" :key="todpObj.id" :todo="todoObj" />
+		<MyItem 
+			v-for="todpObj in todos" 
+			:key="todpObj.id" 
+			:todo="todoObj" 
+			:checkTodo="checkTodo"
+		 />
 	</ul>
 </template>
 
@@ -10,16 +15,7 @@
 	export default {
 		name:'MyList',
 		components:{MyItem},
-		data() {
-			return {
-				todos:[
-					{id:'001',title:'吃饭',done:true},
-					{id:'002',title:'睡觉',done:false},
-					{id:'003',title:'抽烟',done:true},
-					{id:'004',title:'开车',done:true}
-				]
-			}
-		}
+		props: ['todos', 'checkTodo']
 		//声明接收App传递过来的数据，其中todos是自己用的，checkTodo和deleteTodo是给子组件MyItem用的
 	// 	props:['todos','checkTodo','deleteTodo']
 	}

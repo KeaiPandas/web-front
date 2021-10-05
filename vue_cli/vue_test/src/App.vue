@@ -1,7 +1,7 @@
 <template>
 <div>
-	<MyHeader/>
-	<MyList/>
+	<MyHeader :receive="receive" />
+	<MyList :todos='todos' :checkTodo="checkTodo" />
 	<MyFooter/>
 </div>
 </template>
@@ -13,7 +13,27 @@
 
 	export default {
 		name:'App',
-		components:{MyHeader,MyList,MyFooter},
+		data() {
+			return {
+				todos:[
+					{id:'001',title:'吃饭',done:true},
+					{id:'002',title:'睡觉',done:false},
+					{id:'003',title:'抽烟',done:true}
+				]
+			}
+		},
+		method: {
+			receive(x) {
+				console.log('我是App组件，我收到了数据', x)
+			},
+			//勾选or取消勾选一个todo
+			checkTodo(id){
+				this.todos.forEach(()=>{
+					if(todo.id === id) todo.done = !todo.done
+				})
+			}
+		},
+		components: {MyHeader,MyList,MyFooter},
 	}
 </script>
 
