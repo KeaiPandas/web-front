@@ -14,6 +14,7 @@
 	export default {
 		name:'MyList',
 		components:{MyItem},
+		//声明接收App传递过来的数据
 		props:['todos']
 	}
 </script>

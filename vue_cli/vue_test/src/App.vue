@@ -3,7 +3,7 @@
 		<div class="todo-container">
 			<div class="todo-wrap">
 				<MyHeader @addTodo="addTodo"/>
-				<MyList :todos="todos" :checkTodo="checkTodo" :deleteTodo="deleteTodo"/>
+				<MyList :todos="todos"/>
 				<MyFooter :todos="todos" @checkAllTodo="checkAllTodo" @clearAllTodo="clearAllTodo"/>
 			</div>
 		</div>
@@ -11,9 +11,10 @@
 </template>
 
 <script>
+	import pubsub from 'pubsub-js'
 	import MyHeader from './components/MyHeader'
 	import MyList from './components/MyList'
-	import MyFooter from './components/MyFooter.vue'
+	import MyFooter from './components/MyFooter'
 
 	export default {
 		name:'App',
@@ -36,7 +37,7 @@
 				})
 			},
 			//删除一个todo
-			deleteTodo(id){
+			deleteTodo(_,id){
 				this.todos = this.todos.filter( todo => todo.id !== id )
 			},
 			//全选or取消全选
@@ -50,7 +51,12 @@
 				this.todos = this.todos.filter((todo)=>{
 					return !todo.done
 				})
-			}
+			},
+			updateTodo(id,title){
+				this.todos.forEach((todo)=>{
+					if(todo.id === id) todo.title = title
+				})
+			},
 		},
 		watch: {
 			todos:{
@@ -62,12 +68,14 @@
 		},
 		mounted() {
 			this.$bus.$on('checkTodo',this.checkTodo)
-			this.$bus.$on('deleteTodo',this.deleteTodo)
+			this.$bus.$on('updateTodo',this.updateTodo)
+			this.pubId = pubsub.subscribe('deleteTodo',this.deleteTodo)
 		},
 		beforeDestroy() {
 			this.$bus.$off('checkTodo')
-			this.$bus.$off('deleteTodo')
-		}
+			this.$bus.$off('updateTodo')
+			pubsub.unsubscribe(this.pubId)
+		},
 	}
 </script>
 
@@ -92,6 +100,12 @@
 		color: #fff;
 		background-color: #da4f49;
 		border: 1px solid #bd362f;
+	}
+	.btn-edit {
+		color: #fff;
+		background-color: skyblue;
+		border: 1px solid rgb(111, 170, 194);
+		margin-right: 5px;
 	}
 	.btn-danger:hover {
 		color: #fff;

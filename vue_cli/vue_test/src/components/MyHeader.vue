@@ -8,8 +8,6 @@
 	import {nanoid} from 'nanoid'
 	export default {
 		name:'MyHeader',
-		//接收从App传递过来的addTodo
-		props:['addTodo'],
 		data() {
 			return {
 				//收集用户输入的title
