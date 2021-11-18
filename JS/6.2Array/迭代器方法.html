@@ -8,12 +8,15 @@
 </head>
 <body>
   <script>
-    function* generatorfn() {
-      yield
+    function* generatorFn() {
+      yield 'foo'
+      yield 'bar'
+      return 'baz'
     }
 
-    let generatorObject = generatorfn()
+    let generatorObject = generatorFn()
 
+    console.log(generatorObject.next())
     console.log(generatorObject.next())
     console.log(generatorObject.next())
 
