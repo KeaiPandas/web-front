@@ -8,31 +8,16 @@
 </head>
 <body>
   <script>
-   let book = {}
-   Object.defineProperties(book, {
-     year_: {
-       value: 2017
-     },
+    let dest, src, result
+    dest = {}
+    src = { id: 'src' }
 
-     editon: {
-       value:1
-     },
+    result = Object.assign(dest, src)
 
-     year: {
-       get: function() {
-         return this.year_
-       },
-
-       set: function(newValue) {
-         if (newValue > 2017) {
-           this.year_ = newValue
-           this.editon += newValue - 2017
-         }
-       }
-     }
-   })
-
-   console.log(object.getOwnPropertyDescriptors(book))
+    console.log(dest === result)
+    console.log(dest !== src)
+    console.log(result)
+    console.log(dest)
   </script>
 </body>
 </html>
