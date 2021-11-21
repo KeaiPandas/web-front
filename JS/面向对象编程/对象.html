@@ -8,19 +8,20 @@
 </head>
 <body>
   <script>
-    function createPerson(name, age, job) {
-      let o = new Object()
-      o.name = name
-      o.age = age
-      o.job = job
-      o.sayName = function() {
-        console.log(this.name)
-      }
-      return o
+    function Person () {}
+
+    Person.prototype.name = "Nocholas"
+    Person.prototype.age = 29
+    Person.prototype.job - "Software Engineer"
+    Person.prototype.sayName = function() {
+      console.log(this.name)
     }
 
-    let person1 = createPerson("Nicholas", 29, "Software Engineer")
-    let person2 = createPerson("Greg", 27, "Doctor")
+    let person1 = new Person()
+    let person2 = new Person()
+
+    person1.sayName()
+    person2.sayName()
 
   </script>
 </body>
